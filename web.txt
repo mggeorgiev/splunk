@@ -1,0 +1,4 @@
+#wget -O splunk-8.0.0-1357bef0a7f6-linux-2.6-amd64.deb 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=8.0.0&product=splunk&filename=splunk-8.0.0-1357bef0a7f6-linux-2.6-amd64.deb&wget=true'
+
+#search
+| pivot websites_statistics RootObject dc(clientip) AS "Distinct Count of clientip" SPLITROW date_wday AS date_wday FILTER referer contains "www.martingeorgiev.com/" SORT 100 date_wday ROWSUMMARY 0 COLSUMMARY 0 SHOWOTHER 1
